@@ -1,79 +1,81 @@
 # Más que 50: Tu historia continúa
 
-Página web estática para la campaña académica **“Más que 50: tu historia continúa”**, orientada a personas mayores de 50 años de la localidad de Engativá, Bogotá.
+Micrositio académico responsive para la campaña **Más que 50: tu historia continúa**, orientada a personas mayores de 50 años de la Localidad de Engativá.
 
-## Objetivo
-
-Motivar a personas mayores de 50 años a reconocer nuevas metas personales, explorar oportunidades de formación, empleo, emprendimiento y bienestar, y fortalecer su proyecto de vida mediante una experiencia digital clara, accesible e intuitiva.
-
-## Estructura del sitio
-
-- Inicio de campaña.
-- Explicación de la campaña.
-- Beneficios de aprender después de los 50.
-- Ruta de participación sin mencionar cronograma interno.
-- Encuesta inicial pre-test.
-- Historias inspiradoras.
-- Módulo de proyecto de vida.
-- Recomendador de rutas.
-- Oportunidades institucionales.
-- Indicadores de impacto.
-- ODS relacionados.
-- Preguntas frecuentes.
-- Mapa de Engativá.
-- Encuesta final post-test.
-
-## Archivos
+## Archivos del proyecto
 
 - `index.html`: estructura principal de la página.
-- `styles.css`: estilos visuales, diseño adaptable y accesibilidad.
-- `script.js`: menú móvil, accesibilidad, videos, formularios, recomendador, chatbot, animaciones y contadores.
+- `styles.css`: diseño visual responsive para celular, tablet y computador.
+- `script.js`: menú móvil, accesibilidad, chatbot, videos, animaciones y contadores.
+- `README.md`: instrucciones del proyecto.
+
+## Secciones incluidas
+
+1. Inicio moderno tipo landing page.
+2. Ruta de funcionamiento de la campaña.
+3. Evaluación inicial.
+4. Storytimes audiovisuales.
+5. Orientador interactivo.
+6. Oportunidades institucionales: Betowa, SENA, Área Andina, Bogotá y Fondo Emprender.
+7. Indicadores animados.
+8. ODS 3, 4 y 8.
+9. Preguntas frecuentes.
+10. Mapa de Engativá.
+11. Evaluación final.
+12. Chatbot orientador.
+13. Panel de accesibilidad.
+
+## Cómo publicar en GitHub Pages
+
+1. Entra a tu repositorio de GitHub.
+2. Haz clic en **Add file**.
+3. Selecciona **Upload files**.
+4. Sube estos cuatro archivos: `index.html`, `styles.css`, `script.js`, `README.md`.
+5. Baja hasta **Commit changes**.
+6. Escribe un mensaje como: `Actualización página Más que 50`.
+7. Haz clic en el botón verde **Commit changes**.
+8. Entra a **Settings > Pages** y verifica que esté activa la publicación desde `main` y `/root`.
+
+## Cómo cambiar los videos de storytime
+
+En `index.html`, busca esta parte:
+
+```html
+<button data-video="https://www.youtube.com/embed/ID_VIDEO_1">Ver storytime</button>
+```
+
+Debes reemplazar `ID_VIDEO_1` por el ID real del video de YouTube.
+
+Ejemplo: si el enlace normal es:
+
+```text
+https://www.youtube.com/watch?v=abc123XYZ
+```
+
+El enlace embed debe quedar así:
+
+```html
+<button data-video="https://www.youtube.com/embed/abc123XYZ">Ver storytime</button>
+```
+
+También puedes subir videos propios a YouTube como **No listado** y usar el enlace embed.
+
+## Recomendaciones para los videos
+
+- Duración sugerida: 30 segundos a 2 minutos.
+- Grabar en formato horizontal si se usará como video principal.
+- Agregar subtítulos para accesibilidad.
+- Usar buena iluminación y audio claro.
+- Evitar lenguaje que estigmatice la edad.
 
 ## Tecnologías utilizadas
 
 - HTML5
 - CSS3
 - JavaScript
+- Google Fonts
 - GitHub Pages
 
-## Publicación en GitHub Pages
+## Objetivo académico
 
-1. Crear un repositorio en GitHub.
-2. Subir los archivos `index.html`, `styles.css`, `script.js` y `README.md`.
-3. Entrar a **Settings**.
-4. Ir a **Pages**.
-5. En **Branch**, seleccionar `main` y carpeta `/root`.
-6. Guardar.
-7. Abrir la URL pública generada por GitHub Pages.
-
-## Nota
-
-Los formularios son demostrativos. Para una implementación real con recolección de datos, se recomienda integrar Google Forms, Firebase, Supabase o un formulario con backend, incluyendo autorización de tratamiento de datos personales.
-
-
-## Enlaces incluidos
-- Betowa SENA
-- SENA
-- Cursos virtuales SENA Zajuna
-- Cursos gratuitos Bogotá
-- Oportunidades 50+ Secretaría de Desarrollo Económico
-- Área Andina
-- Ministerio de Educación
-- Bogotá
-
-## Cómo cambiar los videos de Storytime
-En `index.html`, busca los botones con el atributo `data-video`.
-Ejemplo:
-
-```html
-<button data-video="https://www.youtube.com/embed/ID_DEL_VIDEO">Ver storytime</button>
-```
-
-Para usar un video de YouTube:
-1. Abre el video en YouTube.
-2. Copia el ID del video. Está después de `v=` en la URL.
-3. Reemplaza el enlace por: `https://www.youtube.com/embed/ID_DEL_VIDEO`.
-
-También puedes abrir YouTube, seleccionar **Compartir > Insertar**, copiar el enlace del `iframe` y usar solo la URL que aparece en `src`.
-
-Recomendación: usa videos cortos, con subtítulos, buen audio y relacionados con estudio, emprendimiento, hobbies o proyecto de vida después de los 50 años.
+Promover el aprendizaje permanente, el bienestar emocional, la construcción del proyecto de vida y la conexión con oportunidades reales para personas mayores de 50 años.

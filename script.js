@@ -1,169 +1,134 @@
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => document.querySelectorAll(s);
 
-const menuBtn = $('#menuBtn');
-const navLinks = $('#navLinks');
-if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+const safe = (selector, event, callback) => {
+  const element = $(selector);
+  if (element) element.addEventListener(event, callback);
+};
 
-$('#accessBtn').addEventListener('click', () => $('#accessPanel').classList.toggle('open'));
-$('#fontPlus').addEventListener('click', () => {
+safe('#menuBtn', 'click', () => $('#navLinks').classList.toggle('open'));
+
+$$('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => $('#navLinks')?.classList.remove('open'));
+});
+
+safe('#accessBtn', 'click', () => $('#accessPanel').classList.toggle('open'));
+safe('#fontPlus', 'click', () => {
   const root = document.documentElement;
   const current = parseFloat(getComputedStyle(root).getPropertyValue('--font-size')) || 18;
-  root.style.setProperty('--font-size', Math.min(current + 1, 24) + 'px');
+  root.style.setProperty('--font-size', Math.min(current + 1, 23) + 'px');
 });
-$('#contrastToggle').addEventListener('click', () => document.body.classList.toggle('contrast'));
-$('#darkToggle').addEventListener('click', () => document.body.classList.toggle('dark'));
-$('#resetAccess').addEventListener('click', () => {
+safe('#fontMinus', 'click', () => {
+  const root = document.documentElement;
+  const current = parseFloat(getComputedStyle(root).getPropertyValue('--font-size')) || 18;
+  root.style.setProperty('--font-size', Math.max(current - 1, 16) + 'px');
+});
+safe('#contrastToggle', 'click', () => document.body.classList.toggle('contrast'));
+safe('#darkToggle', 'click', () => document.body.classList.toggle('dark'));
+safe('#resetAccess', 'click', () => {
   document.documentElement.style.setProperty('--font-size','18px');
   document.body.classList.remove('contrast','dark');
 });
 
-['#preForm','#postForm'].forEach((formId) => {
+['#preForm', '#postForm'].forEach((formId) => {
   const form = $(formId);
   if (!form) return;
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const success = formId === '#preForm' ? '#preSuccess' : '#postSuccess';
-    $(success).classList.add('show');
-    if (formId === '#preForm') document.querySelector('#historias').scrollIntoView({behavior:'smooth'});
+    $(success)?.classList.add('show');
   });
 });
 
 $$('[data-video]').forEach(btn => {
   btn.addEventListener('click', () => {
-    $('#videoFrame').src = btn.dataset.video;
+    const video = btn.dataset.video;
+    if (video.includes('ID_VIDEO')) {
+      alert('Aquí debes reemplazar ID_VIDEO por el enlace embed real del video de YouTube.');
+      return;
+    }
+    $('#videoFrame').src = video;
     $('#videoModal').classList.add('open');
     $('#videoModal').setAttribute('aria-hidden','false');
   });
 });
-$('#closeVideo').addEventListener('click', () => {
+safe('#closeVideo', 'click', () => {
   $('#videoFrame').src = '';
   $('#videoModal').classList.remove('open');
   $('#videoModal').setAttribute('aria-hidden','true');
 });
 
-const questions = [
-  '¿Qué sueño dejaste pendiente?',
-  '¿Qué siempre quisiste aprender?',
-  '¿Qué actividad disfrutas hacer?',
-  '¿Qué experiencia de tu vida puede ayudarte a comenzar algo nuevo?',
-  '¿Qué pequeño paso puedes dar hoy?'
-];
-let current = 0;
-const answers = [];
-function updateQuestion(){
-  $('#questionText').textContent = questions[current];
-  $('#answerBox').value = answers[current] || '';
-  $('#progressBar').style.width = ((current + 1) / questions.length * 100) + '%';
-  $('#reflectionResult').textContent = current === questions.length - 1 ? 'Al finalizar, escribe una acción sencilla que puedas iniciar desde hoy.' : '';
-}
-$('#nextQuestion').addEventListener('click', () => {
-  answers[current] = $('#answerBox').value;
-  if(current < questions.length - 1){ current++; updateQuestion(); }
-  else { $('#reflectionResult').textContent = 'Muy bien. Tu próximo paso ya empezó: reconocer lo que deseas construir.'; }
-});
-$('#prevQuestion').addEventListener('click', () => {
-  answers[current] = $('#answerBox').value;
-  if(current > 0){ current--; updateQuestion(); }
-});
-updateQuestion();
-
-const routeLinks = {
+const routes = {
   estudiar: {
-    title: 'Ruta sugerida: formación y capacitación',
-    text: 'Comienza revisando cursos del SENA, Betowa y cursos gratuitos de Bogotá.',
-    links: [
-      ['Betowa SENA','https://betowa.sena.edu.co/'],
-      ['Área Andina','https://www.google.com/aclk?sa=L&ai=DChsSEwiJncWz6bKVAxWopVoFHcP9N1IYACICCAEQAxoCdnU&co=1&ase=2&gclid=Cj0KCQjw9ZLSBhCcARIsAEhGKgPfcMgbrWQuBmSMPY76uBbqT1xraFqE-enWCvhT49J5E9Lqfiag-hQaAsjtEALw_wcB&cid=CAASZuRoDNGNIB43YKDrU1954HTfIqjUTORK_g0dNK1jEPaIef66ufNmp3cNHV7x0yIaa3YOhk8x4sUgzlWDUqRUN-2XV_iXiQQiU_59qWEKhEwhpdcPTuIq9U9e8VeOr6CULYzoh4hxUQ&cce=2&category=acrcp_v1_32&sig=AOD64_0v4w27I53QowAJ57ze5g_MTzYeSQ&q&nis=4&adurl&ved=2ahUKEwiP3Lyz6bKVAxUFZjABHSiRJnYQ0Qx6BAgYEAE'],
-      ['Cursos Bogotá','https://bogota.gov.co/tag/cursos-gratuitos'],
-      ['SENA','https://www.sena.edu.co/']
-    ]
+    title: 'Ruta recomendada para estudiar',
+    text: 'Empieza revisando Betowa y SENA. Elige un curso corto, verifica requisitos y agenda un horario semanal de estudio.',
+    link: 'https://betowa.sena.edu.co/',
+    label: 'Ir a Betowa SENA'
   },
   emprender: {
-    title: 'Ruta sugerida: emprendimiento',
-    text: 'Organiza tu idea, busca formación y revisa opciones de apoyo institucional.',
-    links: [
-      ['Fondo Emprender','https://www.fondoemprender.com/'],
-      ['SENA','https://www.sena.edu.co/']
-    ]
+    title: 'Ruta recomendada para emprender',
+    text: 'Define una idea, valida qué sabes hacer bien y revisa recursos de emprendimiento como Fondo Emprender.',
+    link: 'https://www.fondoemprender.com/',
+    label: 'Ir a Fondo Emprender'
+  },
+  hobby: {
+    title: 'Ruta recomendada para aprender un hobby',
+    text: 'Busca cursos gratuitos en Bogotá o formación virtual. Un hobby puede convertirse en bienestar, comunidad o emprendimiento.',
+    link: 'https://bogota.gov.co/tag/cursos-gratuitos',
+    label: 'Ver cursos gratuitos'
   },
   empleo: {
-    title: 'Ruta sugerida: empleo',
-    text: 'Explora oportunidades laborales y convocatorias dirigidas a personas mayores de 50 años.',
-    links: [
-      ['Oportunidades 50+','https://desarrolloeconomico.gov.co/secretaria-de-desarrollo-economico-ofrece-mas-de-400-oportunidades-laborales-162-exclusivas-para-personas-mayores-de-50-anos/'],
-      ['Bogotá','https://bogota.gov.co/']
-    ]
-  },
-  bienestar: {
-    title: 'Ruta sugerida: bienestar y hobbies',
-    text: 'Busca actividades de aprendizaje, arte, cultura o tecnología que fortalezcan tu bienestar.',
-    links: [
-      ['Cursos gratuitos Bogotá','https://bogota.gov.co/tag/cursos-gratuitos'],
-      ['Cursos virtuales SENA','https://zajuna.sena.edu.co/']
-    ]
+    title: 'Ruta recomendada para empleo u orientación',
+    text: 'Revisa convocatorias, oportunidades laborales y rutas institucionales dirigidas a personas mayores de 50 años.',
+    link: 'https://desarrolloeconomico.gov.co/secretaria-de-desarrollo-economico-ofrece-mas-de-400-oportunidades-laborales-162-exclusivas-para-personas-mayores-de-50-anos/',
+    label: 'Ver oportunidades'
   }
 };
-$('#routeBtn').addEventListener('click', () => {
-  const value = $('#routeSelect').value;
-  const box = $('#routeResult');
-  if(!value){
-    box.innerHTML = '<strong>Selecciona una opción para ver la recomendación.</strong>';
-    box.classList.add('show');
-    return;
-  }
-  const item = routeLinks[value];
-  box.innerHTML = `<h3>${item.title}</h3><p>${item.text}</p><ul>${item.links.map(([label,url]) => `<li><a href="${url}" target="_blank" rel="noopener">${label}</a></li>`).join('')}</ul>`;
-  box.classList.add('show');
-});
 
-$('#searchBtn').addEventListener('click', () => {
-  const value = $('#searchInput').value.trim().toLowerCase();
-  const result = $('#searchResult');
-  if(!value){ result.textContent = 'Escribe una palabra para orientarte.'; return; }
-  if(value.includes('emprend')){
-    result.textContent = 'Te recomendamos revisar la sección de Emprendimiento y Fondo Emprender.';
-  } else if(value.includes('emple')){
-    result.textContent = 'Te recomendamos revisar oportunidades laborales para personas mayores de 50 años.';
-  } else if(value.includes('arte') || value.includes('hobby') || value.includes('bienestar')){
-    result.textContent = 'Te recomendamos revisar cursos gratuitos y actividades de bienestar.';
-  } else {
-    result.textContent = 'Te recomendamos iniciar por Betowa, SENA y cursos gratuitos de Bogotá.';
-  }
-  document.querySelector('#oportunidades').scrollIntoView({behavior:'smooth'});
-});
+function renderRoute(key) {
+  const route = routes[key];
+  if (!route || !$('#advisorResult')) return;
+  $('#advisorResult').innerHTML = `<h3>${route.title}</h3><p>${route.text}</p><a class="btn primary" target="_blank" rel="noopener" href="${route.link}">${route.label}</a>`;
+}
 
-const chatToggle = $('#chatToggle');
-const chatWindow = $('#chatWindow');
-chatToggle.addEventListener('click', () => chatWindow.classList.toggle('open'));
-$$('#chatWindow [data-answer]').forEach(btn => {
-  btn.addEventListener('click', () => $('#chatAnswer').textContent = btn.dataset.answer);
-});
+$$('[data-path]').forEach(btn => btn.addEventListener('click', () => renderRoute(btn.dataset.path)));
 
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) entry.target.classList.add('visible');
+safe('#chatFab', 'click', () => $('#chatBox').classList.toggle('open'));
+safe('#closeChat', 'click', () => $('#chatBox').classList.remove('open'));
+$$('[data-chat]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const route = routes[btn.dataset.chat];
+    $('#chatBody').innerHTML = `<p class="bot"><strong>${route.title}</strong><br>${route.text}</p><a class="btn primary full" target="_blank" rel="noopener" href="${route.link}">${route.label}</a>`;
   });
-},{threshold:.12});
+});
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.14 });
 $$('.reveal').forEach(el => revealObserver.observe(el));
 
-let counted = false;
-const impact = $('#impacto');
-const counterObserver = new IntersectionObserver(entries => {
+let countersStarted = false;
+function animateCounter(el) {
+  const target = Number(el.dataset.count || 0);
+  let current = 0;
+  const step = Math.max(1, Math.ceil(target / 60));
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    el.textContent = current.toLocaleString('es-CO');
+  }, 24);
+}
+const metricObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if(entry.isIntersecting && !counted){
-      counted = true;
-      $$('.counter').forEach(counter => {
-        const target = Number(counter.dataset.target);
-        let value = 0;
-        const step = Math.max(1, Math.ceil(target / 45));
-        const timer = setInterval(() => {
-          value += step;
-          if(value >= target){ value = target; clearInterval(timer); }
-          counter.textContent = value;
-        }, 30);
-      });
+    if (entry.isIntersecting && !countersStarted) {
+      countersStarted = true;
+      $$('[data-count]').forEach(animateCounter);
     }
   });
-},{threshold:.25});
-if(impact) counterObserver.observe(impact);
+}, { threshold: 0.35 });
+if ($('.metrics-section')) metricObserver.observe($('.metrics-section'));
