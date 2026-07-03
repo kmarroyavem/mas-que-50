@@ -1,79 +1,81 @@
 # Más que 50: Tu historia continúa
 
-Versión simplificada del micrositio de la campaña **Más que 50: tu historia continúa**.
+Micrositio académico responsive para la campaña **Más que 50: tu historia continúa**, orientada a personas mayores de 50 años de la Localidad de Engativá.
 
-## Archivos incluidos
+## Archivos del proyecto
 
-- `index.html`: estructura de la página.
-- `styles.css`: diseño moderno, responsive y accesible.
-- `script.js`: menú móvil, accesibilidad, videos y animaciones.
-- `README.md`: instrucciones de uso.
+- `index.html`: estructura principal de la página.
+- `styles.css`: diseño visual responsive para celular, tablet y computador.
+- `script.js`: menú móvil, accesibilidad, chatbot, videos, animaciones y contadores.
+- `README.md`: instrucciones del proyecto.
 
-## Secciones principales
+## Secciones incluidas
 
-1. Inicio moderno y llamativo.
-2. Ruta sencilla de navegación.
-3. Encuesta inicial.
-4. Story time.
-5. Botones principales de acceso:
-   - Betowa SENA
-   - SENA
-   - Área Andina
-   - Cursos gratuitos Bogotá
-   - Fondo Emprender
-   - Oportunidades laborales
-6. Encuesta final.
-7. Accesibilidad: aumentar texto, disminuir texto y alto contraste.
+1. Inicio moderno tipo landing page.
+2. Ruta de funcionamiento de la campaña.
+3. Evaluación inicial.
+4. Storytimes audiovisuales.
+5. Orientador interactivo.
+6. Oportunidades institucionales: Betowa, SENA, Área Andina, Bogotá y Fondo Emprender.
+7. Indicadores animados.
+8. ODS 3, 4 y 8.
+9. Preguntas frecuentes.
+10. Mapa de Engativá.
+11. Evaluación final.
+12. Chatbot orientador.
+13. Panel de accesibilidad.
 
-## Cómo conectar las encuestas con Google Forms
+## Cómo publicar en GitHub Pages
 
-En `index.html`, busca estos enlaces:
+1. Entra a tu repositorio de GitHub.
+2. Haz clic en **Add file**.
+3. Selecciona **Upload files**.
+4. Sube estos cuatro archivos: `index.html`, `styles.css`, `script.js`, `README.md`.
+5. Baja hasta **Commit changes**.
+6. Escribe un mensaje como: `Actualización página Más que 50`.
+7. Haz clic en el botón verde **Commit changes**.
+8. Entra a **Settings > Pages** y verifica que esté activa la publicación desde `main` y `/root`.
 
-```html
-https://forms.gle/PEGA_AQUI_TU_FORMULARIO_INICIAL
-```
+## Cómo cambiar los videos de storytime
 
-y
-
-```html
-https://forms.gle/PEGA_AQUI_TU_FORMULARIO_FINAL
-```
-
-Reemplázalos por los enlaces reales de tus formularios de Google Forms.
-
-## Cómo cambiar los videos de Story Time
-
-En `index.html`, busca:
+En `index.html`, busca esta parte:
 
 ```html
-<button data-video="https://www.youtube.com/embed/ID_VIDEO_1">Ver video</button>
+<button data-video="https://www.youtube.com/embed/ID_VIDEO_1">Ver storytime</button>
 ```
 
-Cambia `ID_VIDEO_1` por el ID real del video de YouTube.
+Debes reemplazar `ID_VIDEO_1` por el ID real del video de YouTube.
 
-Ejemplo:
-
-Enlace normal:
+Ejemplo: si el enlace normal es:
 
 ```text
 https://www.youtube.com/watch?v=abc123XYZ
 ```
 
-Debe quedar así:
+El enlace embed debe quedar así:
 
 ```html
-<button data-video="https://www.youtube.com/embed/abc123XYZ">Ver video</button>
+<button data-video="https://www.youtube.com/embed/abc123XYZ">Ver storytime</button>
 ```
 
-## Cómo publicar en GitHub Pages
+También puedes subir videos propios a YouTube como **No listado** y usar el enlace embed.
 
-1. Entra al repositorio de GitHub.
-2. Haz clic en **Add file > Upload files**.
-3. Sube `index.html`, `styles.css`, `script.js` y `README.md`.
-4. Baja hasta **Commit changes**.
-5. Entra a **Settings > Pages**.
-6. Verifica que esté publicado desde la rama `main` y carpeta `/root`.
+## Recomendaciones para los videos
 
-## Nota
+- Duración sugerida: 30 segundos a 2 minutos.
+- Grabar en formato horizontal si se usará como video principal.
+- Agregar subtítulos para accesibilidad.
+- Usar buena iluminación y audio claro.
+- Evitar lenguaje que estigmatice la edad.
 
-Esta versión elimina elementos adicionales como mapa, chatbot, métricas y demasiados botones para que la navegación sea más clara para personas mayores de 50 años.
+## Tecnologías utilizadas
+
+- HTML5
+- CSS3
+- JavaScript
+- Google Fonts
+- GitHub Pages
+
+## Objetivo académico
+
+Promover el aprendizaje permanente, el bienestar emocional, la construcción del proyecto de vida y la conexión con oportunidades reales para personas mayores de 50 años.
