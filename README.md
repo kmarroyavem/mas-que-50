@@ -1,29 +1,40 @@
 # Más que 50: Tu historia continúa
 
-Micrositio académico responsive para la campaña **Más que 50: tu historia continúa**, orientada a personas mayores de 50 años de la Localidad de Engativá.
+Versión simplificada del micrositio académico con 6 secciones, pensada para personas mayores de 50 años.
 
-## Archivos del proyecto
+## Archivos incluidos
 
 - `index.html`: estructura principal de la página.
-- `styles.css`: diseño visual responsive para celular, tablet y computador.
-- `script.js`: menú móvil, accesibilidad, chatbot, videos, animaciones y contadores.
-- `README.md`: instrucciones del proyecto.
+- `styles.css`: diseño moderno, responsive y accesible.
+- `script.js`: menú móvil, accesibilidad, formularios, videos y animaciones.
+- `README.md`: instrucciones de uso.
 
-## Secciones incluidas
+## Estructura final de la página
 
-1. Inicio moderno tipo landing page.
-2. Ruta de funcionamiento de la campaña.
-3. Evaluación inicial.
-4. Storytimes audiovisuales.
-5. Orientador interactivo.
-6. Oportunidades institucionales: Betowa, SENA, Área Andina, Bogotá y Fondo Emprender.
-7. Indicadores animados.
-8. ODS 3, 4 y 8.
-9. Preguntas frecuentes.
-10. Mapa de Engativá.
-11. Evaluación final.
-12. Chatbot orientador.
-13. Panel de accesibilidad.
+1. Hero principal con imagen de mujer adulta feliz.
+2. Encuesta inicial.
+3. Story Time con tarjetas de video.
+4. Descubre nuevas oportunidades.
+5. Encuesta final.
+6. Pie de página.
+
+## Secciones eliminadas
+
+- Ruta sencilla 01-04.
+- Indicadores de impacto.
+- ODS.
+- Mapa de Engativá.
+- Preguntas frecuentes.
+- Chat flotante.
+
+## Enlaces incluidos
+
+- SENA.
+- Betowa SENA.
+- Área Andina.
+- Empleo para mayores de 50.
+- Fondo Emprender.
+- Cursos gratuitos Bogotá.
 
 ## Cómo publicar en GitHub Pages
 
@@ -32,50 +43,43 @@ Micrositio académico responsive para la campaña **Más que 50: tu historia con
 3. Selecciona **Upload files**.
 4. Sube estos cuatro archivos: `index.html`, `styles.css`, `script.js`, `README.md`.
 5. Baja hasta **Commit changes**.
-6. Escribe un mensaje como: `Actualización página Más que 50`.
-7. Haz clic en el botón verde **Commit changes**.
-8. Entra a **Settings > Pages** y verifica que esté activa la publicación desde `main` y `/root`.
+6. Escribe un mensaje como: `Actualización página Más que 50 versión simplificada`.
+7. Haz clic en **Commit changes**.
+8. Entra a **Settings > Pages** y verifica que la publicación esté activa desde `main` y `/root`.
 
-## Cómo cambiar los videos de storytime
+## Cómo cambiar los videos de Story Time
 
-En `index.html`, busca esta parte:
+En `index.html`, busca una línea como esta:
 
 ```html
-<button data-video="https://www.youtube.com/embed/ID_VIDEO_1">Ver storytime</button>
+<button data-video="https://www.youtube.com/embed/ID_VIDEO_1">Ver historia</button>
 ```
 
-Debes reemplazar `ID_VIDEO_1` por el ID real del video de YouTube.
+Reemplaza `ID_VIDEO_1` por el ID real del video de YouTube.
 
-Ejemplo: si el enlace normal es:
+Ejemplo:
+
+Enlace normal:
 
 ```text
 https://www.youtube.com/watch?v=abc123XYZ
 ```
 
-El enlace embed debe quedar así:
+Debe quedar así:
 
 ```html
-<button data-video="https://www.youtube.com/embed/abc123XYZ">Ver storytime</button>
+<button data-video="https://www.youtube.com/embed/abc123XYZ">Ver historia</button>
 ```
 
-También puedes subir videos propios a YouTube como **No listado** y usar el enlace embed.
+## Recomendación para Google Forms
 
-## Recomendaciones para los videos
+La página trae formularios visuales en HTML para mostrar la encuesta inicial y final.
 
-- Duración sugerida: 30 segundos a 2 minutos.
-- Grabar en formato horizontal si se usará como video principal.
-- Agregar subtítulos para accesibilidad.
-- Usar buena iluminación y audio claro.
-- Evitar lenguaje que estigmatice la edad.
+Si necesitas guardar respuestas y estadísticas reales, crea dos formularios en Google Forms:
 
-## Tecnologías utilizadas
+- Encuesta inicial.
+- Encuesta final.
 
-- HTML5
-- CSS3
-- JavaScript
-- Google Fonts
-- GitHub Pages
+Luego puedes reemplazar cada formulario HTML por un botón o iframe de Google Forms.
 
-## Objetivo académico
-
-Promover el aprendizaje permanente, el bienestar emocional, la construcción del proyecto de vida y la conexión con oportunidades reales para personas mayores de 50 años.
+También puedes dejar el diseño como está para la sustentación y usar enlaces externos a Google Forms cuando ya tengas los formularios listos.

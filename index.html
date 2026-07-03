@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Más que 50: Tu historia continúa</title>
-  <meta name="description" content="Campaña digital e interactiva para motivar a personas mayores de 50 años de Engativá a estudiar, emprender, aprender y construir nuevos proyectos de vida." />
+  <meta name="description" content="Campaña académica para motivar a personas mayores de 50 años a estudiar, emprender, aprender y continuar construyendo su proyecto de vida." />
   <meta name="theme-color" content="#14245f" />
   <meta property="og:title" content="Más que 50: Tu historia continúa" />
   <meta property="og:description" content="Nunca es tarde para aprender, emprender o comenzar un nuevo sueño." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -20,19 +20,14 @@
   <button class="access-btn" id="accessBtn" aria-label="Abrir opciones de accesibilidad">♿</button>
   <aside class="access-panel" id="accessPanel" aria-label="Panel de accesibilidad">
     <h2>Accesibilidad</h2>
-    <p>Ajusta la página según tus necesidades.</p>
+    <p>Ajusta la página para leer mejor.</p>
     <button id="fontPlus">Aumentar texto</button>
     <button id="fontMinus">Disminuir texto</button>
     <button id="contrastToggle">Alto contraste</button>
-    <button id="darkToggle">Modo oscuro</button>
     <button id="resetAccess">Restablecer</button>
   </aside>
 
   <header class="site-header" id="inicio">
-    <div class="govbar">
-      <span>Campaña académica</span>
-      <span>Localidad de Engativá · Bogotá</span>
-    </div>
     <nav class="navbar" aria-label="Menú principal">
       <a class="brand" href="#inicio" aria-label="Ir al inicio">
         <span class="brand-icon">50+</span>
@@ -40,82 +35,230 @@
       </a>
       <button class="menu-btn" id="menuBtn" aria-label="Abrir menú de navegación">☰</button>
       <ul class="nav-links" id="navLinks">
-                <li><a href="#historias">Historias</a></li>
-                <li><a href="#oportunidades">Oportunidades</a></li>
-                <li><a class="nav-cta" href="#pretest">Comenzar</a></li>
+        <li><a href="#encuesta-inicial">Encuesta inicial</a></li>
+        <li><a href="#historias">Story Time</a></li>
+        <li><a href="#oportunidades">Oportunidades</a></li>
+        <li><a class="nav-cta" href="#encuesta-final">Encuesta final</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="contenido">
-    <section class="hero section-hero">
-      <div class="hero-shape one"></div>
-      <div class="hero-shape two"></div>
-      <div class="hero-grid">
-        <div class="hero-copy reveal">
+    <!-- 1. HERO PRINCIPAL -->
+    <section class="hero" aria-labelledby="titulo-principal">
+      <div class="hero-bg-circle circle-one"></div>
+      <div class="hero-bg-circle circle-two"></div>
+      <div class="hero-content reveal">
+        <div class="hero-text-box">
           <p class="eyebrow">Bienestar · aprendizaje · propósito</p>
-          <h1>Más que 50:<span> tu historia continúa</span></h1>
-          <p class="hero-text">Una experiencia digital para descubrir nuevas metas, inspirarte con historias de vida y conectarte con oportunidades reales de formación, empleo y emprendimiento.</p>
-          <div class="hero-actions">
-            <a class="btn primary" href="#pretest">Iniciar recorrido</a>
-            <a class="btn glass" href="#historias">Ver historias</a>
-          </div>
-          <div class="trust-row" aria-label="Características de la campaña">
-            <span>📱 Responsive</span>
-            <span>♿ Accesible</span>
+          <h1 id="titulo-principal">Más que 50:<span> tu historia continúa</span></h1>
+          <p class="hero-text">Una campaña para inspirarte a estudiar, emprender, aprender algo nuevo y seguir construyendo tu proyecto de vida.</p>
+          <a class="btn primary big" href="#encuesta-inicial">Comenzar</a>
+          <div class="hero-badges" aria-label="Características de la campaña">
+            <span>📱 Fácil desde celular</span>
+            <span>♿ Texto claro</span>
             <span>🔗 Enlaces oficiales</span>
           </div>
         </div>
-        <div class="phone-card reveal" aria-label="Vista móvil de la campaña">
-          <div class="phone-top"></div>
-          <div class="phone-screen">
-            <div class="mini-badge">Tu nuevo capítulo</div>
-            <h2>¿Qué quieres comenzar?</h2>
-            <div class="choice-pill">Estudiar</div>
-            <div class="choice-pill">Emprender</div>
-            <div class="choice-pill">Aprender un hobby</div>
-            <div class="choice-pill">Buscar oportunidades</div>
-            <a href="#orientador" class="mini-btn">Recibir orientación</a>
+        <div class="hero-image-card" aria-label="Mujer adulta feliz estudiando en computador">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1100&q=80" alt="Mujer adulta sonriendo mientras usa un computador" />
+          <div class="image-message">
+            <strong>Nunca es tarde</strong>
+            <span>para iniciar un nuevo sueño.</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="evaluacion">
-      <div class="split">
-        <div class="reveal">
-          <p class="eyebrow">Evaluación final</p>
-          <h2>Cuéntanos cómo terminó tu recorrido</h2>
-          <p>Esta encuesta final permite comparar si la página motivó nuevas metas, estudio, hobby o proyecto de vida.</p>
-        </div>
-        <form class="form-card reveal" id="postForm">
-          <label>¿Siente que aún tiene metas importantes por cumplir?
-            <select required><option value="">Seleccionar</option><option>Sí</option><option>No</option><option>No sé</option></select>
-          </label>
-          <label>¿Conoce ahora mejores oportunidades de estudio o capacitación?
-            <select required><option value="">Seleccionar</option><option>Sí</option><option>No</option></select>
-          </label>
-          <label>¿Considera que tiene un proyecto de vida más claro?
-            <select required><option value="">Seleccionar</option><option>Sí</option><option>No</option></select>
-          </label>
-          <label>¿La página le motivó a iniciar un nuevo proyecto de vida, hobby o estudio?
-            <select required><option value="">Seleccionar</option><option>Sí</option><option>No</option><option>Tal vez</option></select>
-          </label>
-          <label>¿Qué fue lo que más le gustó?
-            <textarea placeholder="Escribe tu opinión..."></textarea>
-          </label>
-          <button type="submit" class="btn primary full">Enviar encuesta final</button>
-          <p class="success" id="postSuccess">Gracias por participar. Tu historia continúa.</p>
-        </form>
+    <!-- 2. ENCUESTA INICIAL -->
+    <section class="section" id="encuesta-inicial">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Encuesta inicial</p>
+        <h2>Antes de iniciar tu recorrido</h2>
+        <p>Responde estas preguntas para conocer cómo te sientes antes de ver las historias y oportunidades.</p>
       </div>
+      <form class="form-card reveal" id="preForm">
+        <label>1. ¿Sientes que todavía tienes metas importantes por cumplir?
+          <select required>
+            <option value="">Seleccionar respuesta</option>
+            <option>Sí</option>
+            <option>No</option>
+            <option>No estoy seguro/a</option>
+          </select>
+        </label>
+        <label>2. ¿Conoces oportunidades de estudio o capacitación disponibles para ti?
+          <select required>
+            <option value="">Seleccionar respuesta</option>
+            <option>Sí</option>
+            <option>No</option>
+            <option>Conozco pocas</option>
+          </select>
+        </label>
+        <label>3. ¿Te gustaría aprender algo nuevo, emprender o fortalecer una habilidad?
+          <select required>
+            <option value="">Seleccionar respuesta</option>
+            <option>Sí</option>
+            <option>No</option>
+            <option>Tal vez</option>
+          </select>
+        </label>
+        <label>4. ¿Qué tema te interesa más?
+          <select required>
+            <option value="">Seleccionar respuesta</option>
+            <option>Estudiar</option>
+            <option>Emprender</option>
+            <option>Buscar empleo</option>
+            <option>Aprender un hobby</option>
+          </select>
+        </label>
+        <button type="submit" class="btn primary full">Guardar e iniciar</button>
+        <p class="success" id="preSuccess">Gracias. Ahora continúa con la sección Story Time.</p>
+      </form>
+      <!-- Si vas a usar Google Forms, reemplaza este formulario por el iframe o enlace del formulario inicial. -->
+    </section>
+
+    <!-- 3. STORY TIME -->
+    <section class="section dark-section" id="historias">
+      <div class="section-heading light reveal">
+        <p class="eyebrow">Story Time</p>
+        <h2>Historias que inspiran nuevos comienzos</h2>
+        <p>Videos cortos para motivar a estudiar, emprender o aprender después de los 50 años.</p>
+      </div>
+      <div class="story-grid">
+        <article class="story-card reveal">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1000&q=80" alt="Personas adultas aprendiendo juntas" />
+          <div class="story-body">
+            <span class="tag">Educación</span>
+            <h3>Volver a estudiar</h3>
+            <p>Un curso corto puede ser el primer paso para abrir una nueva etapa.</p>
+            <button data-video="https://www.youtube.com/embed/ID_VIDEO_1">Ver historia</button>
+          </div>
+        </article>
+        <article class="story-card reveal">
+          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=80" alt="Personas trabajando en un emprendimiento" />
+          <div class="story-body">
+            <span class="tag">Emprendimiento</span>
+            <h3>Emprender con experiencia</h3>
+            <p>La experiencia de vida también puede convertirse en una idea productiva.</p>
+            <button data-video="https://www.youtube.com/embed/ID_VIDEO_2">Ver historia</button>
+          </div>
+        </article>
+        <article class="story-card reveal">
+          <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1000&q=80" alt="Grupo de personas compartiendo una actividad" />
+          <div class="story-body">
+            <span class="tag">Bienestar</span>
+            <h3>Aprender un hobby</h3>
+            <p>Aprender algo nuevo mejora la confianza, la motivación y el bienestar.</p>
+            <button data-video="https://www.youtube.com/embed/ID_VIDEO_3">Ver historia</button>
+          </div>
+        </article>
+      </div>
+      <div class="video-modal" id="videoModal" aria-hidden="true">
+        <div class="video-box">
+          <button id="closeVideo" aria-label="Cerrar video">×</button>
+          <iframe id="videoFrame" title="Video Story Time" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. OPORTUNIDADES -->
+    <section class="section soft-bg" id="oportunidades">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Descubre nuevas oportunidades</p>
+        <h2>Elige una opción para comenzar hoy</h2>
+        <p>Tarjetas grandes, claras y con enlaces oficiales para estudiar, trabajar o emprender.</p>
+      </div>
+      <div class="opportunity-grid">
+        <a class="op-card reveal" href="https://www.sena.edu.co/" target="_blank" rel="noopener">
+          <span class="op-icon">🎓</span>
+          <h3>SENA</h3>
+          <p>Formación técnica, tecnológica y cursos cortos.</p>
+        </a>
+        <a class="op-card reveal" href="https://betowa.sena.edu.co/" target="_blank" rel="noopener">
+          <span class="op-icon">📘</span>
+          <h3>Betowa SENA</h3>
+          <p>Consulta ofertas educativas y programas de formación.</p>
+        </a>
+        <a class="op-card reveal" href="https://www.areandina.edu.co/" target="_blank" rel="noopener">
+          <span class="op-icon">🏫</span>
+          <h3>Área Andina</h3>
+          <p>Programas de educación superior y formación continua.</p>
+        </a>
+        <a class="op-card reveal" href="https://desarrolloeconomico.gov.co/secretaria-de-desarrollo-economico-ofrece-mas-de-400-oportunidades-laborales-162-exclusivas-para-personas-mayores-de-50-anos/" target="_blank" rel="noopener">
+          <span class="op-icon">💼</span>
+          <h3>Empleo 50+</h3>
+          <p>Oportunidades laborales y orientación institucional.</p>
+        </a>
+        <a class="op-card reveal" href="https://www.fondoemprender.com/" target="_blank" rel="noopener">
+          <span class="op-icon">🚀</span>
+          <h3>Fondo Emprender</h3>
+          <p>Apoyo para ideas de negocio y emprendimiento.</p>
+        </a>
+        <a class="op-card reveal" href="https://bogota.gov.co/tag/cursos-gratuitos" target="_blank" rel="noopener">
+          <span class="op-icon">📚</span>
+          <h3>Cursos gratuitos Bogotá</h3>
+          <p>Convocatorias y formación gratuita para la ciudadanía.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. ENCUESTA FINAL -->
+    <section class="section" id="encuesta-final">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Encuesta final</p>
+        <h2>Cuéntanos cómo terminó tu recorrido</h2>
+        <p>Esta encuesta permite comparar si la página motivó nuevas metas, estudio, hobby o emprendimiento.</p>
+      </div>
+      <form class="form-card reveal" id="postForm">
+        <label>1. Después de ver la campaña, ¿sientes mayor motivación para iniciar algo nuevo?
+          <select required>
+            <option value="">Seleccionar respuesta</option>
+            <option>Sí</option>
+            <option>No</option>
+            <option>Tal vez</option>
+          </select>
+        </label>
+        <label>2. ¿Conoces ahora mejores oportunidades de estudio o capacitación?
+          <select required>
+            <option value="">Seleccionar respuesta</option>
+            <option>Sí</option>
+            <option>No</option>
+            <option>Un poco más</option>
+          </select>
+        </label>
+        <label>3. ¿Te gustaría ingresar a alguno de los enlaces compartidos?
+          <select required>
+            <option value="">Seleccionar respuesta</option>
+            <option>Sí</option>
+            <option>No</option>
+            <option>Tal vez después</option>
+          </select>
+        </label>
+        <label>4. ¿Qué fue lo que más te gustó de la página?
+          <textarea placeholder="Escribe tu opinión..."></textarea>
+        </label>
+        <button type="submit" class="btn primary full">Enviar encuesta final</button>
+        <p class="success" id="postSuccess">Gracias por participar. Tu historia continúa.</p>
+      </form>
+      <!-- Si vas a usar Google Forms, reemplaza este formulario por el iframe o enlace del formulario final. -->
     </section>
   </main>
 
+  <!-- 6. PIE DE PÁGINA -->
   <footer class="footer">
-    <div class="footer-grid">
-      <div><h2>Más que 50</h2><p>Campaña académica para promover proyecto de vida, bienestar y aprendizaje permanente.</p></div>
-      <div><h3>Contacto</h3><p>Localidad de Engativá, Bogotá<br>Correo: contacto@masque50.edu.co</p></div>
-      <div><h3>Medición</h3><p>Escaneos QR · Clics institucionales · Tiempo de permanencia · Encuesta pre-post</p></div>
+    <div class="footer-content">
+      <div>
+        <h2>Más que 50</h2>
+        <p>Campaña académica para promover aprendizaje permanente, bienestar y proyecto de vida.</p>
+      </div>
+      <div>
+        <h3>Enfoque</h3>
+        <p>Personas mayores de 50 años · Engativá · Bogotá</p>
+      </div>
+      <div>
+        <h3>Medición</h3>
+        <p>Encuesta inicial · Story Time · Clics institucionales · Encuesta final</p>
+      </div>
     </div>
     <p class="copyright">© 2026 · Más que 50: tu historia continúa</p>
   </footer>
