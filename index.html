@@ -99,40 +99,58 @@
         <h2>Historias que inspiran nuevos comienzos</h2>
         <p>Videos cortos para motivar a estudiar, emprender o aprender después de los 50 años.</p>
       </div>
+
       <div class="story-grid">
+        <!-- EDUCACIÓN: Video TikTok -->
         <article class="story-card reveal">
-          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1000&q=80" alt="Personas adultas aprendiendo juntas" />
           <div class="story-body">
             <span class="tag">Educación</span>
             <h3>Volver a estudiar</h3>
-            <p>Un curso corto puede ser el primer paso para abrir una nueva etapa.</p>
-            <button data-video="https://www.youtube.com/embed/ID_VIDEO_1">Ver historia</button>
+            <p>Nunca es tarde para cumplir un sueño, aprender algo nuevo y construir una nueva etapa.</p>
+            <div class="story-video-box">
+              <iframe
+                title="Video de educación - Más que 50"
+                src="https://www.tiktok.com/embed/v2/7273904613496016133"
+                loading="lazy"
+                allow="encrypted-media; fullscreen; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
           </div>
         </article>
+
+        <!-- EMPRENDIMIENTO: Video propio en carpeta img -->
         <article class="story-card reveal">
-          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=80" alt="Personas trabajando en un emprendimiento" />
           <div class="story-body">
             <span class="tag">Emprendimiento</span>
             <h3>Emprender con experiencia</h3>
-            <p>La experiencia de vida también puede convertirse en una idea productiva.</p>
-            <button data-video="https://www.youtube.com/embed/ID_VIDEO_2">Ver historia</button>
+            <p>La experiencia de vida también puede convertirse en una idea productiva o un nuevo proyecto.</p>
+            <div class="story-video-box local-video">
+              <video controls playsinline preload="metadata">
+                <source src="img/emprender.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video.
+              </video>
+            </div>
           </div>
         </article>
+
+        <!-- BIENESTAR: Video TikTok -->
         <article class="story-card reveal">
-          <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1000&q=80" alt="Grupo de personas compartiendo una actividad" />
           <div class="story-body">
             <span class="tag">Bienestar</span>
-            <h3>Aprender un hobby</h3>
-            <p>Aprender algo nuevo mejora la confianza, la motivación y el bienestar.</p>
-            <button data-video="https://www.youtube.com/embed/ID_VIDEO_3">Ver historia</button>
+            <h3>Bienestar y propósito</h3>
+            <p>La edad no limita los sueños. Siempre hay tiempo para vivir con motivación y propósito.</p>
+            <div class="story-video-box">
+              <iframe
+                title="Video de bienestar - Más que 50"
+                src="https://www.tiktok.com/embed/v2/7585390405500325140"
+                loading="lazy"
+                allow="encrypted-media; fullscreen; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
           </div>
         </article>
-      </div>
-      <div class="video-modal" id="videoModal" aria-hidden="true">
-        <div class="video-box">
-          <button id="closeVideo" aria-label="Cerrar video">×</button>
-          <iframe id="videoFrame" title="Video Story Time" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
       </div>
     </section>
 
